@@ -1,4 +1,4 @@
-from kumex.baseRequest.baseRequest import KumexBaseRestApi
+from kumex.base_request.base_request import KumexBaseRestApi
 
 
 class MarketData(KumexBaseRestApi):
