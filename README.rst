@@ -102,7 +102,9 @@ Websockets
     async def main():
         async def deal_msg(msg):
             if msg['topic'] == '/contractMarket/level2:XBTUSDM':
-                print(f'Get XBTUSDM tick:{msg["data"]}')
+                print(f'Get XBTUSDM Ticker:{msg["data"]}')
+            elif msg['topic'] == '/contractMarket/level3:XBTUSDM':
+                print(f'Get XBTUSDM level3:{msg["data"]}')
 
         # is public
         # client = WsToken()
@@ -110,8 +112,9 @@ Websockets
         client = WsToken(key='', secret='', passphrase='')
         # is sandbox
         # client = WsToken(is_sandbox=True)
-        ws_client = await KumexWsClient.create(loop, client, deal_msg)
+        ws_client = await KumexWsClient.create(loop, client, deal_msg, private=False)
         await ws_client.subscribe('/contractMarket/level2:XBTUSDM')
+        await ws_client.subscribe('/contractMarket/level3:XBTUSDM')
         while True:
             await asyncio.sleep(60, loop=loop)
 
