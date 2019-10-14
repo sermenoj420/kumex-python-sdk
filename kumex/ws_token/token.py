@@ -9,12 +9,10 @@ class GetToken(KumexBaseRestApi):
         :param is_private private or public
         :return:
         """
-        auth = False
         uri = '/api/v1/bullet-public'
         if is_private:
-            auth = True
             uri = '/api/v1/bullet-private'
 
-        return self._request('POST', uri, auth=auth)
+        return self._request('POST', uri, auth=is_private)
 
 

@@ -1,8 +1,8 @@
 ===============================
-Welcome to python-kumex-sdk v1.0.7
+Welcome to python-kumex-sdk v1.0.8
 ===============================
 
-.. image:: https://img.shields.io/badge/version-v1.0.7-green
+.. image:: https://img.shields.io/badge/version-v1.0.8-green
     :target: https://pypi.org/project/python-kumex
 
 .. image:: https://img.shields.io/pypi/l/python-kumex.svg
@@ -11,8 +11,8 @@ Welcome to python-kumex-sdk v1.0.7
 .. image:: https://img.shields.io/badge/python-3.6%2B-green
     :target: https://pypi.org/project/python-kumex
 
-.. image:: https://img.shields.io/badge/releases-v1.0.7-green
-    :target: https://pypi.org/manage/project/python-kumex/release/1.0.7/
+.. image:: https://img.shields.io/badge/releases-v1.0.8-green
+    :target: https://pypi.org/manage/project/python-kumex/release/1.0.8/
 
 Features
 --------
@@ -22,10 +22,6 @@ Features
 - Response exception handling
 - Implement websockets (note only python3.6+)
 
-TODO
-----
-
-- websocket
 
 Quick Start
 -----------
@@ -39,7 +35,7 @@ or `Generate an API Key in Sandbox <https://sandbox.kucoin.com/account/api>`_ an
 
 .. code:: bash
 
-    pip install python-kumex
+    pip install python-kumex==1.0.8
 
 .. code:: python
 
