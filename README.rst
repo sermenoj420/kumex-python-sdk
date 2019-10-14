@@ -6,7 +6,7 @@ Welcome to python-kumex-sdk v1.0.7
     :target: https://pypi.org/project/python-kumex
 
 .. image:: https://img.shields.io/pypi/l/python-kumex.svg
-    :target: https://github.com/grape-cola/kumex-python-sdk/blob/master/LICENSE
+    :target: https://github.com/Kucoin/kumex-python-sdk/blob/master/LICENSE
 
 .. image:: https://img.shields.io/badge/python-3.6%2B-green
     :target: https://pypi.org/project/python-kumex
@@ -92,3 +92,35 @@ or `Generate an API Key in Sandbox <https://sandbox.kucoin.com/account/api>`_ an
     # client = User(api_key, api_secret, api_passphrase, is_sandbox=True)
 
     address = client.get_withdrawal_quota('XBT')
+
+Websockets
+----------
+
+.. code:: python
+
+    import asyncio
+    from kumex.client import WsToken
+    from kumex.ws_client import KumexWsClient
+
+
+    async def main():
+        async def deal_msg(msg):
+            if msg['topic'] == '/contractMarket/level2:XBTUSDM':
+                print(f'Get XBTUSDM Ticker:{msg["data"]}')
+
+        # is public
+        # client = WsToken()
+        # is private
+        client = WsToken(key='', secret='', passphrase='')
+
+        # is sandbox
+        # client = WsToken(is_sandbox=True)
+        ws_client = await KumexWsClient.create(loop, client, deal_msg)
+        await ws_client.subscribe('/contractMarket/level2:XBTUSDM')
+        while True:
+            await asyncio.sleep(60, loop=loop)
+
+
+    if __name__ == "__main__":
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(main())
