@@ -5,7 +5,7 @@ import websockets
 from random import random
 
 
-class ReconnectingWebsocket:
+class ConnectWebsocket:
     MAX_RECONNECTS = 5
     MAX_RECONNECT_SECONDS = 60
 

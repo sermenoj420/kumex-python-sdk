@@ -7,7 +7,7 @@ from setuptools import setup
 setup(
     name='python-kumex',
     version='1.0.7',
-    packages=['kumex', 'kumex/baseRequest', 'kumex/marketData', 'kumex/trade', 'kumex/user'],
+    packages=['kumex', 'kumex/base_request', 'kumex/marke_data', 'kumex/trade', 'kumex/user'],
     license="MIT",
     author='Grape',
     author_email="grape.zhang@kucoin.com",

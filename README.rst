@@ -106,13 +106,12 @@ Websockets
     async def main():
         async def deal_msg(msg):
             if msg['topic'] == '/contractMarket/level2:XBTUSDM':
-                print(f'Get XBTUSDM Ticker:{msg["data"]}')
+                print(f'Get XBTUSDM tick:{msg["data"]}')
 
         # is public
         # client = WsToken()
         # is private
         client = WsToken(key='', secret='', passphrase='')
-
         # is sandbox
         # client = WsToken(is_sandbox=True)
         ws_client = await KumexWsClient.create(loop, client, deal_msg)

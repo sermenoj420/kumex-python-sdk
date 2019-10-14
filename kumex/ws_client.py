@@ -1,5 +1,4 @@
-from kumex.websocket.websocket import ReconnectingWebsocket
-
+from kumex.websocket.websocket import ConnectWebsocket
 
 class KumexWsClient:
     """
@@ -20,7 +19,7 @@ class KumexWsClient:
         self._client = client
         self._private = private
         self._callback = callback
-        self._conn = ReconnectingWebsocket(loop, self._client, self._recv, private)
+        self._conn = ConnectWebsocket(loop, self._client, self._recv, private)
         return self
 
     async def _recv(self, msg):
