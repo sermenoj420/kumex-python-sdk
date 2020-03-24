@@ -59,7 +59,11 @@ class KumexBaseRestApi(object):
                 "Content-Type": "application/json"
             }
         url = urljoin(self.url, uri)
-        response_data = requests.request(method, url, headers=headers, data=data_json, timeout=timeout)
+        if method in ['GET', 'DELETE']:
+            response_data = requests.request(method, url, headers=headers, timeout=timeout)
+        else:
+            response_data = requests.request(method, url, headers=headers, data=data_json,
+                                             timeout=timeout)
         return self.check_response_data(response_data)
 
     @staticmethod

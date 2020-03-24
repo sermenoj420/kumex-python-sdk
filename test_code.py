@@ -31,10 +31,10 @@ context = ssl._create_unverified_context()
 if __name__ == "__main__":
     # loop = asyncio.get_event_loop()
     # loop.run_until_complete(main())
-    # client = Market(is_sandbox=True)
-    client = User('', '', '',is_sandbox=True)
+    client = Market()
+    # client = User('', '', '',is_sandbox=True)
     # data = client.create_limit_order("XBTUSDM", 'buy', '10', '10000', '6500')
-    data = client.get_account_overview()
+    data = client.l3_order_book('XBTUSDM')
     print(data)
 
 
