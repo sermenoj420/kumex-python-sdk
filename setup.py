@@ -6,7 +6,7 @@ from setuptools import setup
 
 setup(
     name='python-kumex',
-    version='1.0.9',
+    version='v1.0.10',
     packages=['kumex', 'kumex/base_request', 'kumex/marke_data', 'kumex/trade', 'kumex/user',
               'kumex/websocket', 'kumex/ws_token'],
     license="MIT",
