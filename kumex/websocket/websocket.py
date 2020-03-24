@@ -52,10 +52,8 @@ class ConnectWebsocket:
                         else:
                             await self._callback(msg)
             except websockets.ConnectionClosed:
-                keep_alive = False
                 await self._reconnect()
             except Exception as e:
-                keep_alive = False
                 await self._reconnect()
 
     def get_ws_endpoint(self):

@@ -1,8 +1,8 @@
 ===============================
-Welcome to python-kumex-sdk v1.0.8
+Welcome to python-kumex-sdk v1.0.9
 ===============================
 
-.. image:: https://img.shields.io/badge/version-v1.0.8-green
+.. image:: https://img.shields.io/badge/version-v1.0.9-green
     :target: https://pypi.org/project/python-kumex
 
 .. image:: https://img.shields.io/pypi/l/python-kumex.svg
@@ -11,8 +11,8 @@ Welcome to python-kumex-sdk v1.0.8
 .. image:: https://img.shields.io/badge/python-3.6%2B-green
     :target: https://pypi.org/project/python-kumex
 
-.. image:: https://img.shields.io/badge/releases-v1.0.8-green
-    :target: https://pypi.org/manage/project/python-kumex/release/1.0.8/
+.. image:: https://img.shields.io/badge/releases-v1.0.9-green
+    :target: https://pypi.org/manage/project/python-kumex/release/1.0.9/
 
 Features
 --------
@@ -35,7 +35,7 @@ or `Generate an API Key in Sandbox <https://sandbox.kucoin.com/account/api>`_ an
 
 .. code:: bash
 
-    pip install python-kumex==1.0.8
+    pip install python-kumex==1.0.9
 
 .. code:: python
 
@@ -69,10 +69,10 @@ or `Generate an API Key in Sandbox <https://sandbox.kucoin.com/account/api>`_ an
     # client = Trade(api_key, api_secret, api_passphrase, is_sandbox=True)
 
     # place a limit buy order
-    order_id = client.sand_limit_order('XBTUSDM', 'buy', '1', '30', '8600')
+    order_id = client.create_limit_order('XBTUSDM', 'buy', '1', '30', '8600')
 
     # place a market buy order   Use cautiously
-    order_id = client.sand_market_order('XBTUSDM', 'buy', '1')
+    order_id = client.create_market_order('XBTUSDM', 'buy', '1')
 
     # cancel limit order 
     client.cancel_order('5bd6e9286d99522a52e458de')

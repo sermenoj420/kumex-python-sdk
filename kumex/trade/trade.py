@@ -34,6 +34,7 @@ class TradeData(KumexBaseRestApi):
                 "positionQty": 10,                   //Position size
                 "positionCost": -0.001241,           //Position value at settlement period
                 "funding": -0.00000464               //Settled funding fees. A positive number means that the user received the funding fee, and vice versa.
+                "settleCurrency": "XBT"             //settlement currency
               },
               .......
             ],
@@ -101,6 +102,7 @@ class TradeData(KumexBaseRestApi):
             "avgEntryPrice": 7508.22,                        //Average entry price
             "liquidationPrice": 1000000,                     //Liquidation price
             "bankruptPrice": 1000000                         //Bankruptcy price
+            "settleCurrency": "XBT"                          //Currency used to clear and settle the trades
         }
         """
         params = {
@@ -148,6 +150,7 @@ class TradeData(KumexBaseRestApi):
           "avgEntryPrice": 7508.22,                        //Average entry price
           "liquidationPrice": 1000000,                     //Liquidation price
           "bankruptPrice": 1000000                         //Bankruptcy price
+          "settleCurrency": "XBT"                         //Currency used to clear and settle the trades
         },
         ....]
         """
@@ -190,7 +193,7 @@ class TradeData(KumexBaseRestApi):
 
     def get_fills_details(self, symbol='', orderId='', side='', type='', startAt=None, endAt=None, **kwargs):
         """
-
+        https://docs.kumex.com/#get-fills
         :param symbol: [optional] Symbol of the contract
         :type: str
         :param orderId: List fills for a specific order only (If you specify orderId, other parameters can be ignored) [optional]
@@ -228,6 +231,8 @@ class TradeData(KumexBaseRestApi):
             "orderType": "limit",  //Order type
             "tradeType": "trade",  //Trade type (trade, liquidation or ADL)
             "createdAt": 1558334496000  //Time the order created
+            "settleCurrency": "XBT", //settlement currency
+            "tradeTime": 1558334496000000000 //trade time in nanosecond
           }
       ]
     }
@@ -272,6 +277,8 @@ class TradeData(KumexBaseRestApi):
          "orderType": "limit",  //Order type
          "tradeType": "trade",  //Trade type (tradek, liquidation or ADL )
          "createdAt": 1558334496000  //Time the order created
+         "settleCurrency": "XBT", //settlement currency
+         "tradeTime": 1558334496000000000 //trade time in nanosecond
         },....]
         """
         return self._request('GET', '/api/v1/recentFills')
@@ -283,7 +290,7 @@ class TradeData(KumexBaseRestApi):
         :param symbol: interest symbol (Mandatory)
         :type: str
         :return:
-        {'openOrderSellSize': 0, 'openOrderBuyCost': '0.170008023', 'openOrderBuySize': 1390, 'openOrderSellCost': '0'}
+        {'openOrderSellSize': 0, 'openOrderBuyCost': '0.170008023', 'openOrderBuySize': 1390, 'openOrderSellCost': '0'  "settleCurrency": "XBT" }
         """
         params = {
             'symbol': symbol,
@@ -291,7 +298,7 @@ class TradeData(KumexBaseRestApi):
 
         return self._request('GET', '/api/v1/openOrderStatistics', params=params)
 
-    def sand_limit_order(self, symbol, side, lever, size, price, clientOid='', **kwargs):
+    def create_limit_order(self, symbol, side, lever, size, price, clientOid='', **kwargs):
         """
         Place Limit Order Functions
 
@@ -328,7 +335,7 @@ class TradeData(KumexBaseRestApi):
 
         return self._request('POST', '/api/v1/orders', params=params)
 
-    def sand_market_order(self, symbol, side, lever, clientOid='', **kwargs):
+    def create_market_order(self, symbol, side, lever, clientOid='', **kwargs):
         """
         Place Market Order Functions
 
@@ -435,6 +442,10 @@ class TradeData(KumexBaseRestApi):
               "isActive": true,  //Mark of the active orders
               "cancelExist": false,  //Mark of the canceled orders
               "createdAt": 1558167872000  //Time the order created
+              "settleCurrency": "XBT", //settlement currency
+              status": "open", //order status: “open” or “done”
+             "updatedAt": 1558167872000, //last update time
+              "orderTime": 1558167872000000000 //order create time in nanosecond
             }
           ]
         }
@@ -486,6 +497,9 @@ class TradeData(KumexBaseRestApi):
             "isActive": true,  //Mark of the active orders
             "cancelExist": false,  //Mark of the canceled orders
             "createdAt": 1558167872000  //Time the order created
+            "settleCurrency": "XBT", //settlement currency
+            "status": "open", //order status: “open” or “done”
+            "updatedAt": 1558167872000 //last update time
         }
       ]
     }
@@ -536,6 +550,10 @@ class TradeData(KumexBaseRestApi):
             "isActive": false,  //Mark of the active orders
             "cancelExist": false,  //Mark of the canceled orders
             "createdAt": 1558167872000  //Time the order created
+            "settleCurrency": "XBT", //settlement currency
+            "status": "done", //order status: “open” or “done”
+            "updatedAt": 1558167872000, //last update time
+            "orderTime": 1558167872000000000 //order create time in nanosecond
           }
       ]
     }
@@ -581,6 +599,10 @@ class TradeData(KumexBaseRestApi):
           "isActive": false,  //Mark of the active orders
           "cancelExist": false,  //Mark of the canceled orders
           "createdAt": 1558167872000  //Time the order created
+          "settleCurrency": "XBT", //settlement currency
+          "status": "done", //order status: “open” or “done”
+          "updatedAt": 1558167872000, //last update time
+          "orderTime": 1558167872000000000 //order create time in nanosecond
         }
         """
         return self._request('GET', '/api/v1/orders/{orderId}'.format(orderId=orderId))

@@ -59,9 +59,7 @@ class KumexBaseRestApi(object):
                 "Content-Type": "application/json"
             }
         url = urljoin(self.url, uri)
-
         response_data = requests.request(method, url, headers=headers, data=data_json, timeout=timeout)
-
         return self.check_response_data(response_data)
 
     @staticmethod
