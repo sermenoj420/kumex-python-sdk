@@ -1,8 +1,8 @@
 ===============================
-Welcome to python-kumex-sdk v1.0.10
+Welcome to python-kumex-sdk v1.0.11
 ===============================
 
-.. image:: https://img.shields.io/badge/version-v1.0.10-green
+.. image:: https://img.shields.io/badge/version-v1.0.11-green
     :target: https://pypi.org/project/python-kumex
 
 .. image:: https://img.shields.io/pypi/l/python-kumex.svg
@@ -11,8 +11,8 @@ Welcome to python-kumex-sdk v1.0.10
 .. image:: https://img.shields.io/badge/python-3.6%2B-green
     :target: https://pypi.org/project/python-kumex
 
-.. image:: https://img.shields.io/badge/releases-v1.0.10-green
-    :target: https://pypi.org/manage/project/python-kumex/release/1.0.10/
+.. image:: https://img.shields.io/badge/releases-v1.0.11-green
+    :target: https://pypi.org/manage/project/python-kumex/release/1.0.11/
 
 Features
 --------
@@ -35,7 +35,7 @@ or `Generate an API Key in Sandbox <https://sandbox.kucoin.com/account/api>`_ an
 
 .. code:: bash
 
-    pip install python-kumex==1.0.10
+    pip install python-kumex==1.0.11
 
 .. code:: python
 
