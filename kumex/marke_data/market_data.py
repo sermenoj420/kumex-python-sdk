@@ -3,13 +3,6 @@ from kumex.base_request.base_request import KumexBaseRestApi
 
 class MarketData(KumexBaseRestApi):
 
-    def __init__(self, is_sandbox=False):
-        if is_sandbox:
-            self.url = 'https://sandbox-api.kumex.com'
-        else:
-            self.url = 'https://api.kumex.com'
-        super(MarketData, self).__init__()
-
     def get_server_timestamp(self):
         """
         https://docs.kumex.com/#server-time
