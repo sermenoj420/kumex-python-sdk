@@ -1,9 +1,6 @@
 ===============================
-Welcome to python-kumex-sdk v1.1.0
+Welcome to python-kumex-sdk
 ===============================
-
-.. image:: https://img.shields.io/badge/version-v1.1.0-green
-    :target: https://pypi.org/project/python-kumex
 
 .. image:: https://img.shields.io/pypi/l/python-kumex.svg
     :target: https://github.com/Kucoin/kumex-python-sdk/blob/master/LICENSE
@@ -11,8 +8,6 @@ Welcome to python-kumex-sdk v1.1.0
 .. image:: https://img.shields.io/badge/python-3.6%2B-green
     :target: https://pypi.org/project/python-kumex
 
-.. image:: https://img.shields.io/badge/releases-v1.1.0-green
-    :target: https://pypi.org/manage/project/python-kumex/release/
 
 Features
 --------
