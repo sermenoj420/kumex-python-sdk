@@ -34,21 +34,26 @@ class KumexBaseRestApi(object):
         self.passphrase = passphrase
 
     def _request(self, method, uri, timeout=5, auth=True, params=None):
+        uri_path = uri
         data_json = ''
-        if method == 'GET':
+        if method in ['GET', 'DELETE']:
             if params:
                 strl = []
                 for key in sorted(params):
                     strl.append("{}={}".format(key, params[key]))
                 data_json += '&'.join(strl)
                 uri += '?' + data_json
+                uri_path = uri
         else:
             if params:
-                data_json = json.dumps(params)
+                data_json= json.dumps(params)
+
+                uri_path = uri + data_json
+
         headers = {}
         if auth:
             now_time = int(time.time()) * 1000
-            str_to_sign = str(now_time) + method + uri + data_json
+            str_to_sign = str(now_time) + method + uri_path
             sign = base64.b64encode(
                 hmac.new(self.secret.encode('utf-8'), str_to_sign.encode('utf-8'), hashlib.sha256).digest())
             headers = {
