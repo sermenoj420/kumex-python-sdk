@@ -33,9 +33,9 @@ if __name__ == "__main__":
     # loop.run_until_complete(main())
     # client = Market()
     client = Trade('', '', '',is_sandbox=True)
-    data = client.get_order_list(symbol='XBTUSDM')
+    data = client.create_limit_order('XBTUSDM', 'buy', '5', '20000', '6410')
     # data = client.create_limit_order('XBTUSDM', 'buy', '5', '20000', '6410')
     # data = client.l3_order_book('XBTUSDM')
-    # print(data)
+    print(data)
 
 
