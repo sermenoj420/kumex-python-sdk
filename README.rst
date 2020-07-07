@@ -30,7 +30,7 @@ or `Generate an API Key in Sandbox <https://sandbox.kucoin.com/account/api>`_ an
 
 .. code:: bash
 
-    pip install python-kumex
+    pip install kumex-python
 
 .. code:: python
 

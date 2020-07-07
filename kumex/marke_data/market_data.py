@@ -445,3 +445,49 @@ class MarketData(KumexBaseRestApi):
         }
         """
         return self._request('GET', '/api/v1/contracts/{symbol}'.format(symbol=symbol), auth=False)
+
+    def get_kline_data(self, symbol, granularity:int, begin_t=None, end_t=None):
+        """
+        https://docs.kucoin.com/futures/#get-k-line-data-of-contract
+        :param symbol: type tar (Mandatory)
+        :return:
+            [
+            1575331200000,//时间
+            7495.01,      //开盘价
+            8309.67,      //最高价
+            7250,         //最低价
+            7463.55,      //收盘价
+            0             //成交量
+        ],
+        [
+            1575374400000,
+            7464.37,
+            8297.85,
+            7273.02,
+            7491.44,
+            0
+        ]
+        """
+        params = {
+            "symbol": symbol,
+            "granularity": granularity
+        }
+        if begin_t:
+            params.update({"from": begin_t})
+        if end_t:
+            params.update({"to": end_t})
+
+        return self._request('GET', '/api/v1/kline/query', auth=False, params=params)
+
+    def get_service_status(self):
+        """
+        https://docs.kucoin.com/futures/#get-the-service-status
+        :param symbol: type tar (Mandatory)
+        :return:
+        {
+        "status": "open",                //open, close, cancelonly
+        "msg":  "upgrade match engine"   //remark for operation
+        }
+        """
+        return self._request('GET', '/api/v1/status', auth=False)
+
