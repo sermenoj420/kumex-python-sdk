@@ -30,7 +30,7 @@ or `Generate an API Key in Sandbox <https://sandbox.kucoin.com/account/api>`_ an
 
 .. code:: bash
 
-    pip install python-kumex
+    pip install kumex-python
 
 .. code:: python
 
@@ -98,8 +98,8 @@ Websockets
         async def deal_msg(msg):
             if msg['topic'] == '/contractMarket/level2:XBTUSDM':
                 print(f'Get XBTUSDM Ticker:{msg["data"]}')
-            elif msg['topic'] == '/contractMarket/level3:XBTUSDM':
-                print(f'Get XBTUSDM level3:{msg["data"]}')
+            elif msg['topic'] == '/contractMarket/level3:XBTUSDTM':
+                print(f'Get XBTUSDTM level3:{msg["data"]}')
 
         # is public
         # client = WsToken()

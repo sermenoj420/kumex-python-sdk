@@ -198,7 +198,7 @@ class UserData(KumexBaseRestApi):
 
         return self._request('GET', '/api/v1/deposit-list', params=params)
 
-    def get_account_overview(self):
+    def get_account_overview(self, currency='XBT'):
         """
         https://docs.kumex.com/#get-account-overview
         :return:
@@ -213,7 +213,10 @@ class UserData(KumexBaseRestApi):
           "currency": "XBT" //currency code
         }
         """
-        return self._request('GET', '/api/v1/account-overview')
+        params = {
+            'currency': currency
+        }
+        return self._request('GET', '/api/v1/account-overview', params=params)
 
     def get_transaction_history(self, **kwargs):
         """
