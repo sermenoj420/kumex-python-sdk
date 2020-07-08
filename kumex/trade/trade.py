@@ -325,7 +325,8 @@ class TradeData(KumexBaseRestApi):
             'size': size,
             'side': side,
             'price': price,
-            'leverage': lever
+            'leverage': lever,
+            'type': 'limit'
         }
         if not clientOid:
             clientOid = self.return_unique_id
@@ -356,7 +357,9 @@ class TradeData(KumexBaseRestApi):
         params = {
             'symbol': symbol,
             'side': side,
-            'leverage': lever
+            'leverage': lever,
+            'type': 'market'
+
         }
         if not clientOid:
             clientOid = self.return_unique_id
