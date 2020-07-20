@@ -25,8 +25,8 @@ Register an account with `KuMEX <https://futures.kucoin.com//ucenter/signup>`_.
 
 To test on the Sandbox  with `KuMEX Sandbox <https://sandbox-futures.kucoin.com>`_.
 
-`Generate an API Key <https://api-futures.kucoin.com/api/create>`_
-or `Generate an API Key in Sandbox <https://api-sandbox-futures.kucoin.com/account/api>`_ and enable it.
+`Generate an API Key <https://futures.kucoin.com/api/create>`_
+or `Generate an API Key in Sandbox <https://sandbox-futures.kucoin.com/account/api>`_ and enable it.
 
 .. code:: bash
 
