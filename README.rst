@@ -37,8 +37,10 @@ or `Generate an API Key in Sandbox <https://sandbox-futures.kucoin.com/account/a
     #  MarketData
     from kumex.client import Market
     client = Market('https://api-futures.kucoin.com')
+    # client = Market()
     # or connect to Sandbox
     # client = Market('https://api-sandbox-futures.kucoin.com')
+    # client = Market(is_sandbox=True)
 
     # get l3_order_book
     l3_depth = client.l3_order_book('XBTUSDM')
@@ -107,6 +109,7 @@ Websockets
         client = WsToken('https://api-futures.kucoin.com', key='', secret='', passphrase='')
         # is sandbox
         # client = WsToken('https://api-sandbox-futures.kucoin.com/')
+        # client = WsToken(is_sandbox=True)
         ws_client = await KumexWsClient.create(loop, client, deal_msg, private=False)
         await ws_client.subscribe('/contractMarket/level2:XBTUSDM')
         await ws_client.subscribe('/contractMarket/level3:XBTUSDM')

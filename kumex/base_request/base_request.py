@@ -13,7 +13,7 @@ from urllib.parse import urljoin
 
 class KumexBaseRestApi(object):
 
-    def __init__(self, url: str, key='', secret='', passphrase=''):
+    def __init__(self, url='', key='', secret='', passphrase='', is_sandbox=False):
         """
         https://docs.kumex.com
 
@@ -25,8 +25,13 @@ class KumexBaseRestApi(object):
         :type passphrase: string
         :param is_sandbox: True sandbox , False  (optional)
         """
-
-        self.url = url
+        if url:
+            self.url = url
+        else:
+            if is_sandbox:
+               self.url = 'https://api-sandbox-futures.kucoin.com'
+            else:
+                self.url = 'https://api-futures.kucoin.com'
         self.key = key
         self.secret = secret
         self.passphrase = passphrase
