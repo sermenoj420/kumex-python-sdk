@@ -36,10 +36,10 @@ or `Generate an API Key in Sandbox <https://sandbox-futures.kucoin.com/account/a
 
     #  MarketData
     from kumex.client import Market
-    client = Market('https://api-futures.kucoin.com')
+    client = Market(url='https://api-futures.kucoin.com')
     # client = Market()
     # or connect to Sandbox
-    # client = Market('https://api-sandbox-futures.kucoin.com')
+    # client = Market(url='https://api-sandbox-futures.kucoin.com')
     # client = Market(is_sandbox=True)
 
     # get l3_order_book
@@ -106,7 +106,7 @@ Websockets
         # is public
         # client = WsToken()
         # is private
-        client = WsToken('https://api-futures.kucoin.com', key='', secret='', passphrase='')
+        client = WsToken(url='https://api-futures.kucoin.com', key='', secret='', passphrase='')
         # is sandbox
         # client = WsToken('https://api-sandbox-futures.kucoin.com/')
         # client = WsToken(is_sandbox=True)
