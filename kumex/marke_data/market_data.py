@@ -262,6 +262,33 @@ class MarketData(KumexBaseRestApi):
         }
         return self._request('GET', '/api/v1/level2/snapshot', auth=False, params=params)
 
+    def l2_part_order_book(self, symbol, depth=20):
+        """
+        https://docs.kucoin.com/futures/#get-part-order-book-level-2
+        :param symbol: type tar (Mandatory)
+        :return:
+            {
+            "code": "200000",
+            "data": {
+              "symbol": "XBTUSDM",      //Symbol
+              "sequence": 100,          //Ticker sequence number
+              "asks": [
+                ["5000.0", 1000],   //Price, quantity
+                ["6000.0", 1983]        //Price, quantity
+              ],
+              "bids": [
+                ["3200.0", 800],        //Price, quantity
+                ["3100.0", 100]     //Price, quantity
+              ]
+            }
+            }
+        """
+
+        params = {
+            "symbol": symbol
+        }
+        return self._request('GET', f'/api/v1/level2/depth{depth}', auth=False, params=params)
+
     def get_l2_messages(self, symbol, start, end):
         """
 
@@ -302,6 +329,27 @@ class MarketData(KumexBaseRestApi):
             "symbol": symbol
         }
         return self._request('GET', '/api/v1/level3/snapshot', auth=False, params=params)
+
+    def l3_order_book_v2(self, symbol):
+        """
+        https://docs.kucoin.com/futures/#get-full-order-book-level-3-v2
+        :param symbol: type tar (Mandatory)
+        :return:
+          {
+            "code": "200000",
+            "data": {
+                "symbol": "XBTUSDM",        //Symbol
+              "sequence":  100,     //The sequence number of the last received message in building a Level 3 order book
+              "bids": [[5567483701231, "dfa123124", "123.12312", 10, 5567483701231], ...],  //Selling data: order placing time - nanosecond, order ID, price, quantity, time at which the order enters the order book -  nanosecond
+              "asks": [[5567483701231, "dfa123124", "123.12312", 10, 5567483701231], ...]   //Buying data: order placing time - nanosecond, order ID, price, quantity, time at which the order enters the order book- nanosecond
+            }
+          }
+        """
+
+        params = {
+            "symbol": symbol
+        }
+        return self._request('GET', '/api/v2/level3/snapshot', auth=False, params=params)
 
     def get_l3_messages(self, symbol, start, end):
         """
