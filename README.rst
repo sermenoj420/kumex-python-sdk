@@ -60,7 +60,7 @@ or `Generate an API Key in Sandbox <https://sandbox-futures.kucoin.com/account/a
 
     # Trade
     from kumex.client import Trade
-    client = Trade(api_key, api_secret, api_passphrase)
+    client = Trade(key='', secret='', passphrase='', is_sandbox=False, url='')
 
     # or connect to Sandbox
     # client = Trade(api_key, api_secret, api_passphrase, is_sandbox=True)
@@ -106,9 +106,8 @@ Websockets
         # is public
         # client = WsToken()
         # is private
-        client = WsToken(url='https://api-futures.kucoin.com', key='', secret='', passphrase='')
+        client = WsToken(key='', secret='', passphrase='', is_sandbox=False, url='')
         # is sandbox
-        # client = WsToken('https://api-sandbox-futures.kucoin.com/')
         # client = WsToken(is_sandbox=True)
         ws_client = await KumexWsClient.create(loop, client, deal_msg, private=False)
         await ws_client.subscribe('/contractMarket/level2:XBTUSDM')
