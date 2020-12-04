@@ -1,5 +1,5 @@
 ===============================
-This warehouse has stopped updating, please go to kucoin-futures-python-sdk
+This warehouse has stopped updating, please go to `kucoin-futures-python-sdk <https://github.com/Kucoin/kucoin-futures-python-sdk>`_
 ===============================
 
 .. image:: https://img.shields.io/pypi/l/python-kumex.svg
