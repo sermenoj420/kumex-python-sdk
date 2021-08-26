@@ -20,3 +20,5 @@ class WsToken(GetToken):
     pass
 
 
+CM-STICK.mtr
+Codemeter.Io
